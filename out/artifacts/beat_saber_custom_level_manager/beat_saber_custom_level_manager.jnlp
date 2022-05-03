@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="beat_saber_custom_level_manager.jnlp">
+  <information>
+    <title>beat_saber_custom_level_manager</title>
+    <vendor>Unknown</vendor>
+    <description>beat_saber_custom_level_manager</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="beat_saber_custom_level_manager.jar" size="30899" download="eager" />
+    <jar href="fastjson-1.2.47.jar" size="546572" download="eager" />
+    <jar href="jorbis-0.0.17-3.jar" size="100334" download="eager" />
+    <jar href="tritonus-share-0.3.7-3.jar" size="132803" download="eager" />
+    <jar href="vorbisspi-1.0.3-2.jar" size="19840" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="BSCLM.Main"  name="beat_saber_custom_level_manager" />
+  <update check="background"/>
+</jnlp>

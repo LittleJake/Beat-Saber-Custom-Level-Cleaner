@@ -1,0 +1,43 @@
+<html><head>
+  <SCRIPT src="http://java.com/js/dtjava.js"></SCRIPT>
+<script>
+    function launchApplication(jnlpfile) {
+        dtjava.launch(            {
+                url : 'beat_saber_custom_level_manager.jnlp'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+        return false;
+    }
+</script>
+
+<script>
+    function javafxEmbedbeat_saber_custom_level_manager_id() {
+        dtjava.embed(
+            {
+                id : 'beat_saber_custom_level_manager_id',
+                url : 'beat_saber_custom_level_manager.jnlp',
+                placeholder : 'javafx-app-placeholder',
+                width : '600',
+                height : '400'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+    }
+    <!-- Embed FX application into web page once page is loaded -->
+    dtjava.addOnloadCallback(javafxEmbedbeat_saber_custom_level_manager_id);
+</script>
+
+</head><body>
+<h2>Test page for <b>beat_saber_custom_level_manager</b></h2>
+  <b>Webstart:</b> <a href='beat_saber_custom_level_manager.jnlp' onclick="return launchApplication('beat_saber_custom_level_manager.jnlp');">click to launch this app as webstart</a><br><hr><br>
+
+  <!-- Applet will be inserted here -->
+  <div id='javafx-app-placeholder'></div>
+</body></html>
