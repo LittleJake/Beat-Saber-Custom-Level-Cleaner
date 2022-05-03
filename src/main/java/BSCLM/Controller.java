@@ -49,7 +49,7 @@ public class Controller {
             int last_index = -1;
             player.stop();
             for (int i: song_list.getSelectionModel().getSelectedIndices().sorted((o1, o2) -> o2-o1)){
-                System.out.print(deleteFolder(song.get(i).getPath()));
+                System.out.print(deleteFolder(new File(song.get(i).getPath())));
                 song.remove(i);
                 last_index = i;
             }
@@ -89,7 +89,7 @@ public class Controller {
         for (File file: files) {
             if (!file.isDirectory()) continue;
             try {
-                Song s = new Song(file);
+                Song s = new Song(file.getPath());
                 song.add(s);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -101,12 +101,13 @@ public class Controller {
         song_list.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     if (newValue == null) return;
-                        song_image.setImage(new Image(new File(newValue.getSongImage()).toURI().toString()));
-                        song_name.setText(newValue.getSongName());
-                        song_sub_name.setText(newValue.getSongSubName());
-                        song_author_name.setText(newValue.getSongAuthorName());
-                        level_author_name.setText(newValue.getLevelAuthorName());
-                        player.play(newValue.getSong());
+                    song_image.setImage(new Image(new File(newValue.getSongImage()).toURI().toString()));
+                    song_name.setText(newValue.getSongName());
+                    song_sub_name.setText(newValue.getSongSubName());
+                    song_author_name.setText(newValue.getSongAuthorName());
+                    level_author_name.setText(newValue.getLevelAuthorName());
+                    player.play(newValue.getSong());
+                    System.gc();
                 });
 
         song_list.setItems(FXCollections.observableArrayList(song));

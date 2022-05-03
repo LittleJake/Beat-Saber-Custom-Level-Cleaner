@@ -7,14 +7,14 @@ import com.alibaba.fastjson.*;
 
 
 public class Song {
-    private final File path;
+    private final String path;
     private String song;
     private String songImage;
     private String songName = "Undefined";
     private String songSubName = "Undefined";
     private String songAuthorName = "Undefined";
     private String levelAuthorName = "Undefined";
-    public File getPath() {
+    public String getPath() {
         return path;
     }
 
@@ -47,7 +47,7 @@ public class Song {
         return levelAuthorName;
     }
 
-    public Song(File path) throws IOException {
+    public Song(String path) throws IOException {
         this.path = path;
         this.loadFromPath();
     }
@@ -55,7 +55,7 @@ public class Song {
 
     private void loadFromPath() throws IOException {
         try {
-            File info = new File(path.getPath() + "/info.dat");
+            File info = new File(path + "/info.dat");
             FileInputStream fis = new FileInputStream(info);
             InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
             BufferedReader br = new BufferedReader(isr);
@@ -75,11 +75,11 @@ public class Song {
             if(!json.getString("_songAuthorName").isEmpty()) this.songAuthorName = json.getString("_songAuthorName");
             if(!json.getString("_levelAuthorName").isEmpty()) this.levelAuthorName = json.getString("_levelAuthorName");
 
-            this.song = path.getPath() + "/"+ json.getString("_songFilename");
-            this.songImage = path.getPath() + "/"+ json.getString("_coverImageFilename");
+            this.song = path + "/"+ json.getString("_songFilename");
+            this.songImage = path + "/"+ json.getString("_coverImageFilename");
 
         } catch (NullPointerException | FileNotFoundException e){
-            throw new FileNotFoundException(path.getPath() + " 不是正确的文件夹");
+            throw new FileNotFoundException(path + " 不是正确的文件夹");
         } catch (IOException e) {
             throw new IOException("读取info失败");
         }

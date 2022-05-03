@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="beat_saber_custom_level_manager.jar" size="30899" download="eager" />
+    <jar href="beat_saber_custom_level_manager.jar" size="30893" download="eager" />
     <jar href="fastjson-1.2.47.jar" size="546572" download="eager" />
     <jar href="jorbis-0.0.17-3.jar" size="100334" download="eager" />
     <jar href="tritonus-share-0.3.7-3.jar" size="132803" download="eager" />
